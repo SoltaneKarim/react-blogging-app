@@ -1,5 +1,5 @@
 import React from "react";
-
+import CreatePost from "./components/CreatePost.jsx";
 import AllPosts from "./components/AllPosts.jsx";
 import Search from "./components/Search.jsx";
 
@@ -28,14 +28,14 @@ class App extends React.Component {
     } else if (this.state.view === "onePost") {
       return <h1> Users wants to see one post </h1>;
     } else if (this.state.view === "createPost") {
-      return <div> Create a post </div>;
+      return <CreatePost />;
     }
   }
 
   render() {
     return (
       <div>
-        <nav className=" nav">
+        <nav className="nav">
           <div
             className={
               this.state.view !== "createPost"
@@ -52,7 +52,9 @@ class App extends React.Component {
             className={
               this.state.view === "allPosts" ? "nav-selected" : "nav-unselected"
             }
-            onClick={() => this.changeView("allPosts")}
+            onClick={() => {
+              this.changeView("allPosts")
+            }}
           >
             All Posts
           </div>
